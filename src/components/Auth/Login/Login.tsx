@@ -31,7 +31,7 @@ export default function Login() {
   useEffect(() => {
     if (isSuccess) {
       toast.success(data?.message ?? "Logged in!");
-      router.push("/debates");
+      router.push("/dashboard");
     }
     if (isError && error) {
       const msg =

@@ -4,7 +4,7 @@ interface LogoProps {
   size?: number; // default = 64
 }
 
-const Logo: React.FC<LogoProps> = ({ size = 64 }) => {
+const WhiteTextLogo: React.FC<LogoProps> = ({ size = 64 }) => {
   const scale = size / 64;
 
   return (
@@ -12,14 +12,14 @@ const Logo: React.FC<LogoProps> = ({ size = 64 }) => {
       {/* Brand Text */}
       <div className="flex items-baseline leading-none space-x-1">
         <span
-          className="font-extrabold text-[#6B3F69] tracking-tight transition-colors group-hover:text-[#8D5F8C]"
+          className="font-extrabold text-primary-foreground tracking-tight transition-colors group-hover:text-primary-foreground"
           style={{ fontSize: `${1.8 * scale}rem` }}
         >
           Animatic
         </span>
 
         <span
-          className="ml-2 font-semibold bg-clip-text text-transparent bg-linear-to-r from-[#8D5F8C] to-[#A376A2]"
+          className="ml-2 font-semibold bg-clip-text text-primary-foreground"
           style={{ fontSize: `${1.6 * scale}rem` }}
         >
           Vision
@@ -29,4 +29,4 @@ const Logo: React.FC<LogoProps> = ({ size = 64 }) => {
   );
 };
 
-export default Logo;
+export default WhiteTextLogo;
