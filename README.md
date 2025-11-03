@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🎬 Animatic Vision — Client (Next.js)
 
-## Getting Started
+The frontend for the Animatic Vision platform. Built with Next.js App Router, it provides user authentication, a projects dashboard, project creation, and triggers server-side story segmentation. It communicates with the FastAPI backend using secure HttpOnly cookies.
 
-First, run the development server:
+## 🚀 Features
+- 🔐 **Authentication** — Register, login, logout, auto-refresh tokens, and load current user
+- 📁 **Projects Dashboard** — List, create, and view projects
+- 🧩 **Story Segmentation Trigger** — Call server to segment story into scenes
+- 🧭 **App Router** — Modern Next.js routing with layouts and route groups
+- 🎨 **Responsive UI** — Tailwind CSS 4 with shadcn/ui components
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🏗️ Tech Stack
+| Layer | Technology |
+|-------|------------|
+| Framework | Next.js 16 / React 19 |
+| State / Data | Redux Toolkit + RTK Query |
+| API Handling | RTK Query `fetchBaseQuery` (cookies included) |
+| Styling | Tailwind CSS 4, shadcn/ui (Radix UI) |
+| Auth | HttpOnly cookies (JWT) with FastAPI backend |
+
+## 📂 Notable Structure
+```
+src/
+  app/
+    (auth)/              # login, register, forget/reset password
+    (main)/dashboard/    # dashboard and project detail pages
+    StoreProvider.tsx    # Redux provider wrapper
+    UnifiedProvider.tsx  # App-level providers
+  redux/
+    api/apiSlice.ts      # base query, refresh-token + me bootstrap
+    features/auth/*      # auth slice and endpoints
+    features/project/*   # project slice and endpoints
+  components/
+    Project/*            # project UI components
+    ui/*                 # shadcn/ui primitives
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Setup & Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the client
+   ```bash
+   git clone https://github.com/your-org/animatic_vision_client.git
+   cd animatic-vision-client
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Learn More
+3. Configure environment variables
+   Create a `.env.local` in the project root:
+   ```env
+   NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the development server
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Build for production
+   ```bash
+   npm run build
+   npm start
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔌 Client-Server Integration
+- Cookies are HttpOnly and set by the server; the client sends them with requests via `credentials: "include"`.
+- On app init, the store dispatches `refreshToken` then `loadUser` to bootstrap auth state.
+- Ensure the server CORS allows your client origin (default includes `http://localhost:3000`).
 
-## Deploy on Vercel
+## 🧪 NPM Scripts
+```bash
+npm run dev      # Start Next.js in development
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧾 License
+This project is licensed under the MIT License — you are free to use and modify it.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to improve.
