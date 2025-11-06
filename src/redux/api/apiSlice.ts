@@ -43,6 +43,7 @@ const baseQueryWithReAuth: BaseQueryFn<
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: baseQueryWithReAuth,
+  tagTypes: ["AdminUsers"],
   endpoints: (builder) => ({
     refreshToken: builder.query({
       query: () => ({
