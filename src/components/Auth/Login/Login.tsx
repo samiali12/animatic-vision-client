@@ -11,6 +11,7 @@ import { useLoggedInUserMutation } from "@/redux/features/auth/authApi";
 import { toast } from "react-toastify";
 import Logo from "@/components/Logo/Logo";
 import { LoaderCircle } from "lucide-react";
+import AnimatedBackground from "@/components/Animations/AnimatedBackground";
 
 type LoginFormInputs = {
   email: string;
@@ -48,9 +49,10 @@ export default function Login() {
   };
 
   return (
-    <div className="background flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
-      {/* Card */}
-      <div className="w-full max-w-sm rounded-xl bg-card p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
+    <AnimatedBackground>
+      <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
+        {/* Card */}
+        <div className="w-full max-w-sm rounded-xl bg-card/95 backdrop-blur-sm p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
         {/* Logo */}
         <div className="mb-6 flex justify-center">
           <Logo size={72} />
@@ -157,7 +159,8 @@ export default function Login() {
             Register
           </Link>
         </p>
+        </div>
       </div>
-    </div>
+    </AnimatedBackground>
   );
 }

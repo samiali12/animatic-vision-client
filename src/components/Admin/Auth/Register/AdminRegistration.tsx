@@ -11,6 +11,7 @@ import React, { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useRegisterAdminMutation } from "@/redux/features/admin/adminAuthApi";
+import AnimatedBackground from "@/components/Animations/AnimatedBackground";
 
 type RegisterFormInputs = {
   fullName: string;
@@ -49,8 +50,9 @@ const AdminRegistration = () => {
   };
 
   return (
-    <div className="background flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
-      <div className="w-full max-w-sm rounded-xl bg-card p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
+    <AnimatedBackground>
+      <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div className="w-full max-w-sm rounded-xl bg-card/95 backdrop-blur-sm p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
         <div className="mb-6 flex justify-center">
           <Logo size={72} />
         </div>
@@ -137,8 +139,9 @@ const AdminRegistration = () => {
             Login
           </Link>
         </p>
+        </div>
       </div>
-    </div>
+    </AnimatedBackground>
   );
 }
 

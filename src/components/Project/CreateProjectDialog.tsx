@@ -83,6 +83,7 @@ const CreateProjectDialog = ({
               id="story"
               placeholder="Once upon a time in a magical forest..."
               rows={6}
+              maxLength={30}
               {...register("story_text", {
                 required: "Story text is required",
               })}

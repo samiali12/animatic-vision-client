@@ -11,6 +11,7 @@ import { LoaderCircle } from "lucide-react";
 import { toast } from "react-toastify";
 import Logo from "@/components/Logo/Logo";
 import { useLoggedInAdminMutation } from "@/redux/features/admin/adminAuthApi";
+import AnimatedBackground from "@/components/Animations/AnimatedBackground";
 
 type LoginFormInputs = {
   email: string;
@@ -48,8 +49,9 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="background flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
-      <div className="w-full max-w-sm rounded-xl bg-card p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
+    <AnimatedBackground>
+      <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div className="w-full max-w-sm rounded-xl bg-card/95 backdrop-blur-sm p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
         <div className="mb-6 flex justify-center">
           <Logo size={72} />
         </div>
@@ -134,8 +136,9 @@ const AdminLogin = () => {
             Register as admin
           </Link>
         </p>
+        </div>
       </div>
-    </div>
+    </AnimatedBackground>
   );
 };
 

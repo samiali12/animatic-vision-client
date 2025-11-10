@@ -35,12 +35,6 @@ const ProjectsNavbar = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
-              href="/dashboard"
-              className="text-primary-foreground font-medium transition"
-            >
-              Projects
-            </Link>
-            <Link
               href="/dashboard/templates"
               className="text-primary-foreground font-medium transition"
             >

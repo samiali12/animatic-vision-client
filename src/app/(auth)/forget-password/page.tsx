@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import axios from "axios";
+import AnimatedBackground from "@/components/Animations/AnimatedBackground";
 
 type FormInputs = {
   email: string;
@@ -50,9 +51,10 @@ export default function ForgetPasswordPage() {
   };
 
   return (
-    <div className="background flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
-      {/* Card */}
-      <div className="w-full max-w-lg rounded-xl bg-card p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
+    <AnimatedBackground>
+      <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
+        {/* Card */}
+        <div className="w-full max-w-lg rounded-xl bg-card/95 backdrop-blur-sm p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
         {/* Logo */}
         <div className="mb-6 flex justify-center">
           <Logo size={72} />
@@ -166,7 +168,8 @@ export default function ForgetPasswordPage() {
             </p>
           </>
         )}
+        </div>
       </div>
-    </div>
+    </AnimatedBackground>
   );
 }
