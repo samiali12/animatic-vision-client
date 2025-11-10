@@ -134,14 +134,15 @@ export default function Register() {
             >
               Password
             </Label>
-            <div className="mt-1.5 rounded-md bg-gradient-to-r from-primary to-secondary p-[1px]">
+            <div className="mt-1.5 rounded-md bg-linear-to-r from-primary to-secondary p-[1px]">
               <Input
                 {...register("password", {
                   required: "Password is required",
                   pattern: {
-                    value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                    value:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/,
                     message:
-                      "Password must be at least 8 characters with a letter and a number",
+                      "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character",
                   },
                 })}
                 id="password"
@@ -150,6 +151,7 @@ export default function Register() {
                 className="h-11 rounded-md bg-background px-3 text-base transition-all focus:outline-none"
               />
             </div>
+
             {errors.password && (
               <p className="mt-1 text-xs text-destructive">
                 {errors.password.message}
