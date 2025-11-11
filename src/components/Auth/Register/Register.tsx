@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import AnimatedBackground from "@/components/Animations/AnimatedBackground";
 
 type RegisterFormInputs = {
   fullName: string;
@@ -51,10 +50,22 @@ export default function Register() {
   };
 
   return (
-    <AnimatedBackground>
-      <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
-        {/* Card */}
-        <div className="w-full max-w-sm rounded-xl bg-card/95 backdrop-blur-sm p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
+    <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="videos/home_screen_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div className="absolute inset-0 bg-black/50 z-10" />
+
+      {/* Card */}
+      <div className="relative z-20 w-full max-w-md rounded-2xl bg-background p-8 shadow-2xl ring-1 ring-primary/20">
         {/* Logo */}
         <div className="mb-6 flex justify-center">
           <Logo size={72} />
@@ -82,7 +93,7 @@ export default function Register() {
             >
               Full Name
             </Label>
-            <div className="mt-1.5 rounded-md bg-gradient-to-r from-primary to-secondary p-[1px]">
+            <div className="">
               <Input
                 {...register("fullName", { required: "Full Name is required" })}
                 id="fullName"
@@ -106,7 +117,7 @@ export default function Register() {
             >
               Email
             </Label>
-            <div className="mt-1.5 rounded-md bg-gradient-to-r from-primary to-secondary p-[1px]">
+            <div className="">
               <Input
                 {...register("email", {
                   required: "Email is required",
@@ -136,7 +147,7 @@ export default function Register() {
             >
               Password
             </Label>
-            <div className="mt-1.5 rounded-md bg-linear-to-r from-primary to-secondary p-[1px]">
+            <div className="">
               <Input
                 {...register("password", {
                   required: "Password is required",
@@ -188,8 +199,7 @@ export default function Register() {
             Login
           </Link>
         </p>
-        </div>
       </div>
-    </AnimatedBackground>
+    </div>
   );
 }

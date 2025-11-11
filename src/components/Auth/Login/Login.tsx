@@ -11,7 +11,6 @@ import { useLoggedInUserMutation } from "@/redux/features/auth/authApi";
 import { toast } from "react-toastify";
 import Logo from "@/components/Logo/Logo";
 import { LoaderCircle } from "lucide-react";
-import AnimatedBackground from "@/components/Animations/AnimatedBackground";
 
 type LoginFormInputs = {
   email: string;
@@ -49,10 +48,22 @@ export default function Login() {
   };
 
   return (
-    <AnimatedBackground>
-      <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
-        {/* Card */}
-        <div className="w-full max-w-sm rounded-xl bg-card/95 backdrop-blur-sm p-6 shadow-xl ring-1 ring-primary/20 sm:p-8">
+    <div className="relative flex min-h-screen items-center justify-center p-4">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="videos/home_screen_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div className="absolute inset-0 bg-black/50 z-10" />
+
+      {/* Card */}
+      <div className="relative z-20 w-full max-w-md rounded-2xl bg-background p-8 shadow-2xl ring-1 ring-primary/20">
         {/* Logo */}
         <div className="mb-6 flex justify-center">
           <Logo size={72} />
@@ -159,8 +170,7 @@ export default function Login() {
             Register
           </Link>
         </p>
-        </div>
       </div>
-    </AnimatedBackground>
+    </div>
   );
 }
